@@ -5,14 +5,17 @@ export const Layout = styled(Box)({
   marginBottom: "10px",
 });
 
-export const StyledAppBar = styled(AppBar)({
+export const ModePicker = styled("div")({
   width: "100%",
-  position: "fixed",
-  marginBottom: "10px",
+  display: "flex",
+  marginTop: "50px",
+  alignItems: "start",
+  flexDirection: "row",
   backgroundColor: "inherit",
+  justifyContent: "space-evenly",
 });
 
 export const AppBarImage = styled("img")({
-  width: "50px",
   height: "50px",
+  width: "50px",
 });

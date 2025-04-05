@@ -1,16 +1,18 @@
 import React, { FC } from "react";
+import Chat from "@components/chat";
 import Header from "@components/header";
-import { Typography } from "@mui/material";
+import BotMode from "@components/botMode";
+import { Layout } from "@pages/main/styles.ts";
 import { useTranslation } from "react-i18next";
 
 const Main: FC = () => {
   const { t } = useTranslation("translation", { keyPrefix: "MAIN_PAGE" });
 
   return (
-    <>
-      <Header companyName={"Within Temptation"} />
-      <Typography variant={"h1"}>{t("HELLO_WORLD")}</Typography>
-    </>
+    <Layout>
+      <Header assNumber={"Assignment 1"} />
+      <Chat />
+    </Layout>
   );
 };
 

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { IconButton, Toolbar, Typography } from "@mui/material";
 
-const Header: FC<{ companyName: string }> = ({ companyName }) => {
+const Header: FC<{ assNumber: string }> = ({ assNumber }) => {
   const navigate = useNavigate();
   const { t } = useTranslation("translation", { keyPrefix: "HEADER" });
 
@@ -26,8 +26,8 @@ const Header: FC<{ companyName: string }> = ({ companyName }) => {
           >
             <AppBarImage src={me} alt={"me"} />
           </IconButton>
-          <Typography variant="h6" flexGrow={1}>
-            {`${t("TITLE")} ${companyName}`}
+          <Typography variant="h6" flexGrow={1} style={{margin: "auto 0"}}>
+            {`${t("TITLE")} ${assNumber}`}
           </Typography>
           <AppBarImage src={company} alt={"company"} />
         </Toolbar>
