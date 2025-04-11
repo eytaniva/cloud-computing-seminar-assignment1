@@ -14,7 +14,7 @@ const ChatHistory: FC<{ userMessages: string[]; aiMessages: string[] }> = ({
         return (
           <>
             <Bubble
-              key={"user" + i}
+              key={"user" + userMessages[i]}
               sx={{
                 color: "#CC7832",
                 backgroundColor: "#383A40",
@@ -27,7 +27,7 @@ const ChatHistory: FC<{ userMessages: string[]; aiMessages: string[] }> = ({
             <br key={"br1"} />
             <br key={"br2"} />
             <Bubble
-              key={"ai" + i}
+              key={"ai" + aiMessages[i]}
               sx={{
                 color: "#9876AA",
                 backgroundColor: "#282A36",
@@ -35,7 +35,7 @@ const ChatHistory: FC<{ userMessages: string[]; aiMessages: string[] }> = ({
                 right: "0",
               }}
             >
-              {aiMessages[i]}
+              {aiMessages[i] + "..."}
             </Bubble>
             <br key={"br3"} />
             <br key={"br4"} />

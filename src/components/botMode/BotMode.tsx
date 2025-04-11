@@ -1,8 +1,9 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import yoda from "@assets/yoda.svg";
 import droid from "@assets/droid.svg";
 import groot from "@assets/groot.svg";
 import { useTranslation } from "react-i18next";
 import { IconButton, Toolbar } from "@mui/material";
+import { Dispatch, FC, SetStateAction } from "react";
 import { BotModeType } from "@components/botMode/types.ts";
 import { AppBarImage, ModePicker } from "@components/botMode/styles.ts";
 
@@ -44,6 +45,20 @@ const BotMode: FC<{
           }}
         >
           <AppBarImage src={groot} alt={"groot"} />
+        </IconButton>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          onClick={() => {
+            setMode("yoda");
+          }}
+          sx={{
+            border: "1px solid",
+            borderColor: isMode("yoda") ? "white" : "transparent !important",
+          }}
+        >
+          <AppBarImage src={yoda} alt={"yoda"} />
         </IconButton>
       </ModePicker>
     </Toolbar>
