@@ -1,11 +1,12 @@
+import router from "@services/router.ts";
 import BotMode from "@components/botMode";
 import React, { FC, useState } from "react";
+import { LinearProgress } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "@tanstack/react-query";
 import ChatHistory from "@components/chatHistory";
 import { Layout, UserInput } from "@components/chat/styles.ts";
 import { BotModeType } from "@components/botMode/types.ts";
-import { LinearProgress } from "@mui/material";
 
 const Chat: FC = () => {
   const { t } = useTranslation("translation", { keyPrefix: "HEADER" });
@@ -19,10 +20,12 @@ const Chat: FC = () => {
     queryKey: ["OPEN_AI"],
     enabled: !!userMessages.length,
     queryFn: async () => {
-      // const response: string = await router.openAI(userInput, mode);
-
-      const response = "I am Groot";
+      const response: string = await router.openAI(
+        userInput.length ? userInput : userMessages[userMessages.length - 1],
+        mode,
+      );
       setAiMessages([...aiMessages, response]);
+      return response;
     },
   });
 

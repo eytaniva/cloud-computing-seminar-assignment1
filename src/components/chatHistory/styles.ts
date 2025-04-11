@@ -13,8 +13,8 @@ export const Bubble = styled("div")({
   whiteSpace: "none",
   overflowX: "hidden",
   padding: "6px 15px",
+  border: "1px solid",
+  borderRadius: "12px",
   position: "absolute",
   marginBottom: "12px",
-  borderRadius: "999px",
-  border: "1px solid",
 });
