@@ -15,9 +15,11 @@ const server: AxiosInstance = axios.create({
 } as CreateAxiosDefaults);
 
 const routerService = {
-  openAI: async (userPrompt: string, botMode: BotModeType) =>
+  geminiAi: async (userPrompt: string, botMode: BotModeType) =>
     (await server.post("", { user_prompt: userPrompt, botMode })).data
       ?.ai_reply,
+  getRecentConversations: async () =>
+    (await server.post("", { chat_history: 3 })).data.chat_history,
 };
 
 export default routerService;

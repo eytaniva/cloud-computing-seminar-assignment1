@@ -1,3 +1,4 @@
 export const QUERY_KEYS = {
-  OPEN_AI: ["Open-AI"],
+  GEMINI_AI: ["GEMINI_AI"],
+  GET_RECENT: ["GET_RECENT"],
 };
