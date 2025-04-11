@@ -1,10 +1,10 @@
-import {Box, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
 export const Layout = styled(Box)({
-    width: "100vh",
-    height: "85vh",
-    display: "flex",
-    position: "relative",
-    flexDirection: "column",
-    justifyContent: "start"
+  width: "100vh",
+  height: "85vh",
+  display: "flex",
+  position: "relative",
+  flexDirection: "column",
+  justifyContent: "start",
 });

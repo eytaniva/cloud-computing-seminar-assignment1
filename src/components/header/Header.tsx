@@ -26,7 +26,7 @@ const Header: FC<{ assNumber: string }> = ({ assNumber }) => {
           >
             <AppBarImage src={me} alt={"me"} />
           </IconButton>
-          <Typography variant="h6" flexGrow={1} style={{margin: "auto 0"}}>
+          <Typography variant="h6" flexGrow={1} style={{ margin: "auto 0" }}>
             {`${t("TITLE")} ${assNumber}`}
           </Typography>
           <AppBarImage src={company} alt={"company"} />
