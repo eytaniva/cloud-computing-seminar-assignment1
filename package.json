@@ -11,6 +11,14 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "alias": {
+    "assets": "./src/assets/*",
+    "components": "./src/components/*",
+    "i18next": "./src/i18next/*",
+    "pages": "./src/pages/*",
+    "services": "./src/services/*",
+    "utils": "./src/utils/*"
+  },
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
