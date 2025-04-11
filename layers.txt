@@ -1,0 +1,10 @@
+To create layers I:
+1. Open an empty directory on my computer.
+2. make sure my local NodeJs version is the same as the lambda's.
+3. npm install all the necessary packages.
+4. Go to layers on the main lambda page.
+5. clicked add a layer.
+6. clicked create new layer.
+7. added the zip.
+8. copy the ARN.
+9. on the add layer screen, chose by ARN, and pasted.

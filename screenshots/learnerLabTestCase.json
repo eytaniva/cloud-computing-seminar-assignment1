@@ -1,0 +1,41 @@
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/",
+  "rawQueryString": "",
+  "headers": {
+    "content-length": "50",
+    "x-amzn-tls-version": "TLSv1.3",
+    "x-forwarded-proto": "https",
+    "postman-token": "4a9e5d24-0ba6-4274-8cec-7d5d12b3939c",
+    "x-forwarded-port": "443",
+    "x-forwarded-for": "217.132.202.149",
+    "accept": "*/*",
+    "x-amzn-tls-cipher-suite": "TLS_AES_128_GCM_SHA256",
+    "x-amzn-trace-id": "Self=1-67f6dff1-3b7e9bc3197acd2b09e234bf;Root=1-67f6dff1-5c9b632b7b9b45a33a935879",
+    "host": "dtgghre4hatyw7mbiiildherl40urpyp.lambda-url.us-east-1.on.aws",
+    "content-type": "application/json",
+    "accept-encoding": "gzip, deflate, br",
+    "user-agent": "PostmanRuntime/7.43.3"
+  },
+  "requestContext": {
+    "accountId": "anonymous",
+    "apiId": "dtgghre4hatyw7mbiiildherl40urpyp",
+    "domainName": "dtgghre4hatyw7mbiiildherl40urpyp.lambda-url.us-east-1.on.aws",
+    "domainPrefix": "dtgghre4hatyw7mbiiildherl40urpyp",
+    "http": {
+      "method": "POST",
+      "path": "/",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "217.132.202.149",
+      "userAgent": "PostmanRuntime/7.43.3"
+    },
+    "requestId": "f39e22a4-0e8d-449c-90cf-a5d16ce733cf",
+    "routeKey": "$default",
+    "stage": "$default",
+    "time": "09/Apr/2025:21:00:33 +0000",
+    "timeEpoch": 1744232433688
+  },
+  "body": "{\"user_prompt\": \"Hello mate!\", \"botMode\": \"yoda\"}",
+  "isBase64Encoded": false
+}

@@ -14,8 +14,10 @@
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@google/genai": "^0.8.0",
     "@mui/material": "^5.16.6",
     "@tanstack/react-query": "^5.51.21",
+    "aws-sdk": "^2.1692.0",
     "axios": "^1.7.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -23,6 +25,7 @@
     "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
+    "@types/aws-sdk": "^2.7.4",
     "@types/axios": "^0.14.0",
     "@types/material-ui": "^0.21.17",
     "@types/node": "^22.1.0",
