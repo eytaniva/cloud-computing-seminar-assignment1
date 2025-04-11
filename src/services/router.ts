@@ -16,7 +16,7 @@ const server: AxiosInstance = axios.create({
 
 const routerService = {
   openAI: async (userPrompt: string, botMode: BotModeType) =>
-    (await server.post("/", { user_prompt: userPrompt, botMode })).data
+    (await server.post("", { user_prompt: userPrompt, botMode })).data
       ?.ai_reply,
 };
 
