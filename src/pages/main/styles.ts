@@ -7,4 +7,5 @@ export const Layout = styled(Box)({
   position: "relative",
   flexDirection: "column",
   justifyContent: "start",
+  backgroundColor: "#242424",
 });
