@@ -15,6 +15,8 @@ const baseResponse = {
   },
 };
 
+let aiContext = null;
+
 const lores = {
   "ai assistant": "",
   groot:
@@ -75,7 +77,7 @@ const saveToDynamoDB = async (userId, userPrompt, aiReply) => {
 
   try {
     await dynamoDB.put(params).promise();
-    console.log("Data saved to DynamoDB:", params.Item);
+    console.log("Data saved to DynamoDB:", params.Item); //logs
   } catch (error) {
     console.error("Error saving to DynamoDB:", error);
   }
@@ -96,15 +98,26 @@ const getFromDynamoDB = async (userId, limit) => {
     Limit: limit,
   };
 
-  console.log("In getFromDynamoDB", userId, limit, params);
+  console.log("In getFromDynamoDB", userId, limit, params); //logs
 
-  const data = await dynamoDB.query(params).promise();
+  const data = (await dynamoDB.query(params).promise()).Items.sort(
+    (a, b) => a.timestamp - b.timestamp,
+  );
+
+  aiContext = gemini.chats.create({
+    model: "gemini-2.0-flash",
+    history: Array.from({ length: data.length })
+      .map((_, i) => [
+        { role: "user", parts: [{ text: data[i]["user-prompt"] }] },
+        { role: "model", parts: [{ text: data[i]["ai-reply"] }] },
+      ])
+      .flat(),
+  });
+
   return {
     ...baseResponse,
     statusCode: 200,
-    body: JSON.stringify({
-      chat_history: data.Items?.sort((a, b) => a.timestamp - b.timestamp),
-    }),
+    body: JSON.stringify({ chat_history: data }),
   };
 };
 
@@ -117,12 +130,11 @@ const askGemini = async (event, context, callback) => {
     event?.requestContext?.http?.sourceIp,
   );
 
-  const fullAiReply = await gemini.models.generateContent({
-    model: "gemini-2.0-flash",
-    contents: `Please act like ${mode} ${lores[mode]}. ${userPrompt}. Answer in 2 sentences or less please.`,
+  const fullAiReply = await aiContext.sendMessage({
+    message: `Please act like ${mode} ${lores[mode]}. ${userPrompt}. Answer in 2 sentences or less please.`,
   });
 
-  const aiReply = fullAiReply.candidates[0].content.parts[0].text;
+  const aiReply = fullAiReply.text;
 
   console.log(JSON.stringify(body, userPrompt, fullAiReply)); //logs
 
